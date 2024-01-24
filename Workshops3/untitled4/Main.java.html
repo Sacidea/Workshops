@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #8c8c8c; font-style: italic;}
+.s3 { color: #067d17;}
+.s4 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.io.File;</span>
+<span class="s0">import </span><span class="s1">java.io.FileNotFoundException;</span>
+<span class="s0">import </span><span class="s1">java.io.FileReader;</span>
+<span class="s0">import </span><span class="s1">java.io.IOException;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner;</span>
+<span class="s0">public class </span><span class="s1">Main {</span>
+
+
+    <span class="s0">public static  void </span><span class="s1">main (String[] args) </span><span class="s0">throws </span><span class="s1">IOException {</span>
+
+
+        <span class="s2">//dosyayı txt dosyasından okuyacak kod:</span>
+        <span class="s1">File dosya = </span><span class="s0">new </span><span class="s1">File(</span><span class="s3">&quot;dosya.txt&quot;</span><span class="s1">);</span>
+        <span class="s2">//Dosya bulunup bulunamadığını  ekrana yazdıracak kod:</span>
+        <span class="s0">if </span><span class="s1">(dosya.exists()) {</span>
+            <span class="s2">//exists() dosyanın var olup olmadığını sorgular</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;    OYUN HARİTASI &quot;</span><span class="s1">);</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Bulunamadı&quot;</span><span class="s1">);</span>
+        <span class="s1">}</span>
+
+
+        <span class="s1">Scanner indosya = </span><span class="s0">new </span><span class="s1">Scanner(dosya);</span>
+        <span class="s2">//txt dosyasından tüm satırları sonuna kadar yazdıran kod (ayrıca hasNext() sonraki satırda veri olup olmadığını kontrol eder):</span>
+        <span class="s0">while </span><span class="s1">(indosya.hasNext()) {</span>
+            <span class="s1">System.out.println(indosya.nextLine());</span>
+        <span class="s1">}</span>
+
+        <span class="s0">char</span><span class="s1">[][] oyunHaritasi = {</span>
+                <span class="s1">{</span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'5'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'5'</span><span class="s1">, </span><span class="s3">'5'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'5'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">, </span><span class="s3">'3'</span><span class="s1">, </span><span class="s3">'4'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">, </span><span class="s3">'3'</span><span class="s1">, </span><span class="s3">'5'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'5'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">, </span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'5'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'8'</span><span class="s1">, </span><span class="s3">'7'</span><span class="s1">, </span><span class="s3">'3'</span><span class="s1">, </span><span class="s3">'4'</span><span class="s1">},</span>
+                <span class="s1">{</span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'2'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'4'</span><span class="s1">, </span><span class="s3">'6'</span><span class="s1">, </span><span class="s3">'1'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">, </span><span class="s3">'9'</span><span class="s1">}</span>
+        <span class="s1">};</span>
+            <span class="s0">boolean </span><span class="s1">loop;</span>
+        <span class="s0">while</span><span class="s1">(loop=</span><span class="s0">true</span><span class="s1">){</span>
+
+            <span class="s1">Scanner input = </span><span class="s0">new </span><span class="s1">Scanner(System.in);</span>
+             <span class="s2">//Kullanıcıdan sayı alınması:</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Lütfen biri satır diğeri sütun olmak üzere 2 sayı giriniz. Koordinatları (0,0) girerseniz oyun sonlanır&quot;</span><span class="s1">);</span>
+
+                <span class="s0">int </span><span class="s1">sayi1 = input.nextInt();</span>
+                <span class="s0">int </span><span class="s1">sayi2 = input.nextInt();</span>
+            <span class="s2">//oyunu sonlandırmayı sağlayacak if bloğu:</span>
+            <span class="s0">if</span><span class="s1">(sayi1==</span><span class="s4">0 </span><span class="s1">&amp;&amp; sayi2==</span><span class="s4">0</span><span class="s1">){</span>
+
+                <span class="s1">System.out.println(</span><span class="s3">&quot;OYUN BiTTİ&quot;</span><span class="s1">);</span>
+                <span class="s1">loop=</span><span class="s0">false</span><span class="s1">;</span>
+                    <span class="s0">break</span><span class="s1">;</span>
+            <span class="s1">}</span>
+            <span class="s2">//Oyun haritasının koordinatları dışında girilecek hatalı girişler içi uyarı kodu:</span>
+            <span class="s0">else if</span><span class="s1">(sayi1&lt;=</span><span class="s4">0 </span><span class="s1">|| sayi1 &gt;oyunHaritasi.length+</span><span class="s4">1 </span><span class="s1">||sayi2&lt;=</span><span class="s4">0</span><span class="s1">||sayi2&gt;oyunHaritasi.length+</span><span class="s4">1</span><span class="s1">){</span>
+                <span class="s1">System.out.println(</span><span class="s3">&quot;Hatalı giriş yaptınız. Lütfen tekrar deneyiniz.&quot;</span><span class="s1">);</span>
+                <span class="s0">continue</span><span class="s1">;</span>
+            <span class="s1">}</span>
+            <span class="s2">//Uygun sayılar alındıktan sonra (row)satır ve col(sütun) değerlerine eşitleyecek kod:</span>
+                <span class="s0">else</span><span class="s1">{</span>
+                    <span class="s0">int </span><span class="s1">row=sayi1;</span>
+                    <span class="s0">int </span><span class="s1">col=sayi2;</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Koordinatlar: &quot;</span><span class="s1">+</span><span class="s3">&quot;(&quot;</span><span class="s1">+row+</span><span class="s3">&quot;,&quot;</span><span class="s1">+col+</span><span class="s3">&quot;)&quot;</span><span class="s1">);</span>
+                <span class="s2">//&quot;oyun &quot; metodu işlemlerinde dizinin indexlerinin 0' dan başlamasından dolayı koordinatların index karşılığı girilen koordinatların 1 eksiği olacak:</span>
+                <span class="s2">//&quot;oyun&quot; metodunu çağırarak temp oluşturma ve &quot;oyunSonucu&quot;metodu ile harita güncellemesi yapılmış olur</span>
+                <span class="s1">oyun(row - </span><span class="s4">1</span><span class="s1">, col - </span><span class="s4">1</span><span class="s1">, oyunHaritasi);</span>
+
+                <span class="s2">//&quot;oyun&quot; metodu ile değişen güncel oyun haritasını tekrar ekrana yazdıracak kod:</span>
+                <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; oyunHaritasi.length; i++) {</span>
+                    <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s4">0</span><span class="s1">; j &lt; oyunHaritasi[</span><span class="s4">0</span><span class="s1">].length; j++) {</span>
+                        <span class="s1">System.out.print(oyunHaritasi[i][j] + </span><span class="s3">&quot; &quot;</span><span class="s1">);</span>
+                    <span class="s1">}</span>
+                    <span class="s1">System.out.println();</span>
+                <span class="s1">}</span>
+
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+        <span class="s2">//Seçilen koordinatı temp değerine aktaran ve ayunSonucu fonksiyonu ile</span>
+        <span class="s0">public static void </span><span class="s1">oyun(</span><span class="s0">int </span><span class="s1">row, </span><span class="s0">int </span><span class="s1">col, </span><span class="s0">char</span><span class="s1">[][] oyunHaritasi){</span>
+        <span class="s2">//seçilen koordinattaki değeri, etrofında aynı sayı yoksa; haritanın devamını kontrol etmesini durduracak bir temp değişkenine aktarıyoruz.</span>
+        <span class="s0">char </span><span class="s1">temp=oyunHaritasi[row][col];</span>
+        <span class="s2">//recursive metodu oyun metodu içinde çağırıyoruz.</span>
+        <span class="s1">yeniOyunHaritasi(row, col, oyunHaritasi, temp);</span>
+        <span class="s1">}</span>
+
+
+        <span class="s2">//oyun sonunda koordinatları değiştirecek recursive metod bloğu :</span>
+        <span class="s0">public static void </span><span class="s1">yeniOyunHaritasi(</span><span class="s0">int </span><span class="s1">row ,</span><span class="s0">int </span><span class="s1">col, </span><span class="s0">char</span><span class="s1">[][] oyunHaritasi, </span><span class="s0">char </span><span class="s1">temp) {</span>
+             <span class="s2">//Koordinatların kontrolünün uygun aralıkta yapılmasını sağlayan if bloğu:</span>
+             <span class="s0">if </span><span class="s1">(row &lt; </span><span class="s4">0 </span><span class="s1">|| row &gt;= oyunHaritasi[</span><span class="s4">0</span><span class="s1">].length || col &lt; </span><span class="s4">0 </span><span class="s1">|| col &gt;= oyunHaritasi.length|| oyunHaritasi[row][col] != temp) {</span>
+             <span class="s2">// if bloğu içindeki şartlara göre metodu durdurmak için &quot;return&quot; anahtar kelimesini kullanıyoruz</span>
+                 <span class="s0">return</span><span class="s1">;</span>
+             <span class="s1">}</span>
+             <span class="s1">oyunHaritasi[row][col] = </span><span class="s3">'x'</span><span class="s1">;</span>
+             <span class="s2">//koordinatın sağ tarafını kontrol eden birinci recursive metod:</span>
+             <span class="s1">yeniOyunHaritasi(row + </span><span class="s4">1</span><span class="s1">, col, oyunHaritasi, temp);</span>
+             <span class="s2">//koordinatın sol tarafını kontrol eden ikinci recursive  metodu:</span>
+             <span class="s1">yeniOyunHaritasi(row - </span><span class="s4">1</span><span class="s1">, col, oyunHaritasi, temp);</span>
+             <span class="s2">//koordinatın aşağısını kontrol eden üçüncü recursive  metod:</span>
+             <span class="s1">yeniOyunHaritasi(row, col - </span><span class="s4">1</span><span class="s1">, oyunHaritasi, temp);</span>
+             <span class="s2">//koordinatın yukarısını kontrol eden dördüncü recursive metod:</span>
+             <span class="s1">yeniOyunHaritasi(row, col + </span><span class="s4">1</span><span class="s1">, oyunHaritasi, temp);</span>
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>
